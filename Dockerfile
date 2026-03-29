@@ -1,7 +1,7 @@
 FROM rust:slim-bookworm AS builder
 
 WORKDIR /tmp/
-RUN apt-get update -y && apt-get -y --no-install-recommends install git libssl-dev pkg-config
+RUN apt-get update -y && apt-get -y --no-install-recommends install libssl-dev pkg-config
 
 WORKDIR /tmp/nmsr-rs/
 COPY . .
