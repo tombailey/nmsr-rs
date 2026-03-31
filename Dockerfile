@@ -19,6 +19,10 @@ WORKDIR /nmsr/
 COPY --from=builder /tmp/nmsr-rs/target/release/nmsr-aas /nmsr/nmsr-aas
 COPY ./example.config.toml /nmsr/config.toml
 
+COPY ./LICENSE-APACHE /nmsr/LICENSE-APACHE
+COPY ./LICENSE-MIT /nmsr/LICENSE-MIT
+COPY ./README.md /nmsr/README.md
+
 ENV NMSR_USE_SMAA=1
 ENV NMSR_SAMPLE_COUNT=1
 ENV WGPU_BACKEND=vulkan
