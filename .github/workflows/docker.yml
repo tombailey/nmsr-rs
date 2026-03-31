@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: nmsr-rs
+  IMAGE_NAME: ghcr.io/${{ github.repository }}
 
 jobs:
   docker:
