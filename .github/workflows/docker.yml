@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: nmsr-rs
+  IMAGE_NAME: ghcr.io/${{ github.repository }}
 
 jobs:
   docker:
@@ -38,6 +38,12 @@ jobs:
 
       - name: Build and push
         uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294 # v7.0.0
+        env:
+          COMMIT_HASH: ${{ github.sha }}
         with:
           platforms: linux/amd64,linux/arm64
           tags: ${{ env.IMAGE_NAME }}:0.0.0-${{ github.sha }}
+          push: true
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}

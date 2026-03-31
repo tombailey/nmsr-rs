@@ -106,18 +106,3 @@ is_empty = { version = "0.3" }
 urlencoding = { version = "2.1.3" }
 
 renderdoc = { version = "0.12.1" }
-
-[profile.dev.package.image]
-opt-level = 3
-
-# Set all libraries to be optimised
-[profile.release.package."*"]
-opt-level = 3
-strip = false
-
-[profile.release]
-opt-level = 3
-strip = false
-debug = true
-lto = true
-panic = "abort"
