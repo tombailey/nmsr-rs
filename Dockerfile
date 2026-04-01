@@ -6,7 +6,7 @@ RUN apt-get update -y && apt-get -y --no-install-recommends install libssl-dev p
 WORKDIR /tmp/nmsr-rs/
 COPY . .
 
-RUN RUSTFLAGS="-Ctarget-cpu=native" cargo build --release --bin nmsr-aas --features ears --package nmsr-aas
+RUN cargo build --release --bin nmsr-aas --features ears --package nmsr-aas
 
 
 
